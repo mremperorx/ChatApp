@@ -26,7 +26,7 @@ const ChatFeed = (props) => {
                         }
                     </div>
                     <div className="read-receipt" style={{ marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px' }}>
-                        read-receipt
+                        {renderReadReceipts(message, isMyMessage)}
                     </div>
                 </div>
             )
@@ -35,7 +35,7 @@ const ChatFeed = (props) => {
     }
     renderMessages()
 
-    if(!chat) return 'Loading...'
+    if (!chat) return 'Loading...'
 
     return (
         <div className="chat-feed">
@@ -46,7 +46,7 @@ const ChatFeed = (props) => {
                 </div>
             </div>
             {renderMessages()}
-            <div style={{ height: '100px'}}/>
+            <div style={{ height: '100px' }} />
             <div className="message-form-container">
                 <MessageFrom {...props} chatId={activeChat} />
             </div>
